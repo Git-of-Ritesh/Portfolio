@@ -10,18 +10,18 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
-      <main>
+      <main className="relative z-10 overflow-hidden rounded-b-[2rem] bg-white md:rounded-b-[3rem]">
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        <Projects limit={3} />
         <Experience />
         <Blog />
         <Contact />
       </main>
-      <Footer />
-    </>
+      <Footer reveal />
+    </div>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { personalInfo, stats, techTicker } from "@/lib/data";
 
@@ -64,10 +63,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="flex items-center gap-3 shrink-0"
+            className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:items-center sm:shrink-0"
           >
-            <a href="#work" className="btn-primary">
-              View Projects
+            <a href="#work" className="btn-primary min-w-0 justify-center px-4 py-3 text-sm sm:px-5 sm:py-2.5">
+              <span className="whitespace-nowrap">View Apps</span>
               <svg
                 width="14"
                 height="14"
@@ -79,7 +78,7 @@ export default function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="/resume.pdf" download className="btn-secondary">
+            <a href="/resume.pdf" download className="btn-secondary min-w-0 justify-center px-4 py-3 text-sm sm:px-5 sm:py-2.5">
               <svg
                 width="14"
                 height="14"
@@ -92,7 +91,8 @@ export default function Hero() {
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
-              Download Resume
+              <span className="whitespace-nowrap sm:hidden">Resume</span>
+              <span className="hidden whitespace-nowrap sm:inline">Download Resume</span>
             </a>
           </motion.div>
         </div>

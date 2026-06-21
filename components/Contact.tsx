@@ -15,7 +15,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-32 bg-neutral-50">
+    <section id="contact" ref={ref} className="bg-white py-28 md:py-36">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left */}

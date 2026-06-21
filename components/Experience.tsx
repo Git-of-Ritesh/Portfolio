@@ -47,7 +47,7 @@ export default function Experience() {
                     <p className="text-neutral-500 text-sm">{item.company}</p>
                   </div>
                 </div>
-                <p className="text-neutral-500 leading-relaxed text-sm mb-4">
+                <p className="max-w-3xl text-neutral-500 leading-relaxed text-sm mb-4">
                   {item.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
