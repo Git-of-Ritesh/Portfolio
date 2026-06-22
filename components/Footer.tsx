@@ -4,19 +4,19 @@ import { personalInfo } from "@/lib/data";
 export default function Footer({ reveal = false }: { reveal?: boolean }) {
   const year = new Date().getFullYear();
   const footerClass = reveal
-    ? "sticky bottom-0 z-0 h-[66svh] bg-black text-white"
+    ? "sticky bottom-0 z-0 min-h-[38svh] bg-black text-white"
     : "bg-black text-white";
 
   return (
-    <footer className={`${footerClass} px-6 py-10 md:py-14`}>
-      <div className="mx-auto flex h-full max-w-6xl flex-col justify-between gap-8">
+    <footer className={`${footerClass} px-6 py-7 md:py-8`}>
+      <div className="mx-auto flex min-h-[inherit] max-w-6xl flex-col justify-between gap-8">
         <div className="grid gap-8 md:grid-cols-[1fr_0.7fr_0.7fr]">
           <div>
             <div className="mb-6 flex h-9 w-9 items-center justify-center rounded-lg bg-white text-xs font-bold tracking-wider text-black">
               {personalInfo.initials}
             </div>
             <p className="max-w-md text-lg font-medium leading-relaxed text-white/56">
-              Building fast, polished mobile apps with clean systems behind them.
+              Building clean Flutter apps with reliable APIs, Firebase workflows, and store-ready polish.
             </p>
           </div>
 

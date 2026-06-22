@@ -36,6 +36,7 @@ export default function Experience() {
               {/* Left: meta */}
               <div className="space-y-1">
                 <p className="text-xs text-neutral-400 font-mono">{item.period}</p>
+                <p className="text-xs font-medium text-black">{item.duration}</p>
                 <p className="text-xs text-neutral-400">{item.location}</p>
               </div>
 

@@ -23,6 +23,8 @@ function TechTicker() {
 }
 
 export default function Hero() {
+  const statsGridClass = stats.length === 3 ? "md:grid-cols-3" : "md:grid-cols-4";
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center grid-bg overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 pt-32 pb-20 w-full">
@@ -102,7 +104,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200"
+          className={`mt-16 grid grid-cols-1 sm:grid-cols-3 ${statsGridClass} gap-px bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200`}
         >
           {stats.map((stat) => (
             <div

@@ -273,11 +273,7 @@ export default function MalahatCaseStudy() {
         </div>
       </section>
 
-      <section
-        ref={galleryRef}
-        className="relative bg-white pt-24 md:pt-32"
-        style={{ height: `calc(100svh + ${galleryTravel * 0.55}px)` }}
-      >
+      <section className="relative bg-white pt-24 md:pt-32">
         <div className="mx-auto flex w-full max-w-6xl flex-col justify-between gap-5 px-6 md:flex-row md:items-end">
           <h2 className="text-4xl font-bold leading-tight md:text-6xl">
             Scroll through
@@ -290,8 +286,13 @@ export default function MalahatCaseStudy() {
         </div>
 
         <div
+          ref={galleryRef}
+          className="relative mt-10 md:mt-12"
+          style={{ height: `calc(100svh + ${galleryTravel}px)` }}
+        >
+        <div
           ref={galleryViewportRef}
-          className="sticky top-16 mt-10 flex h-[calc(100svh-4rem)] items-center overflow-hidden py-12 md:mt-12 md:py-14"
+          className="sticky top-0 flex h-[100svh] items-center overflow-hidden py-12 md:py-14"
         >
           <div className="w-full overflow-hidden">
             <motion.div
@@ -317,6 +318,7 @@ export default function MalahatCaseStudy() {
             ))}
             </motion.div>
           </div>
+        </div>
         </div>
       </section>
 
@@ -395,7 +397,7 @@ export default function MalahatCaseStudy() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:py-32">
+      <section className="px-6 pb-12 pt-24 md:pb-16 md:pt-32">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.75fr_1fr] md:items-center">
           <div>
             <div className="mb-5 flex items-center gap-3">

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="bg-black">
       <Navbar />
-      <main className="relative z-10 overflow-hidden rounded-b-[2rem] bg-white md:rounded-b-[3rem]">
+      <main className="relative z-10 overflow-clip rounded-b-[2rem] bg-white md:rounded-b-[3rem]">
         <Hero />
         <About />
         <Skills />

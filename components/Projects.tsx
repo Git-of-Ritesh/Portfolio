@@ -138,7 +138,7 @@ export default function Projects({ limit, isFullPage = false }: { limit?: number
               <span className="section-label">{isFullPage ? "Case Study" : "Selected Work"}</span>
             </div>
             <h2 className="text-4xl font-bold leading-tight text-black md:text-6xl">
-              {isFullPage ? "Malahat." : "Apps shipped."}
+              {isFullPage ? "Flutter work." : "Apps shipped."}
               <br />
               <span className="text-neutral-400">{isFullPage ? "Case study." : "Not just designed."}</span>
             </h2>
@@ -147,8 +147,8 @@ export default function Projects({ limit, isFullPage = false }: { limit?: number
           <div className="flex flex-col gap-4 md:items-end">
             <p className="max-w-xs text-sm leading-relaxed text-neutral-500 md:text-right">
               {isFullPage
-                ? "One focused case study, presented as a scroll-led product reveal."
-                : "A focused look at a recent project, expanding from preview to full-screen story as you scroll."}
+                ? "Live mobile app work presented through focused case studies."
+                : "A focused look at Flutter app projects that moved from implementation to public store listings."}
             </p>
             {!isFullPage && (
               <Link

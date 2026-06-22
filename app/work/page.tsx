@@ -3,8 +3,8 @@ import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Work | Raj Pandey — Mobile App Developer",
-  description: "A deep dive into my professional portfolio, featuring apps shipped across fintech, health, and creator platforms.",
+  title: "Work | Raj Pandey — Flutter App Developer",
+  description: "Flutter-focused app work across live iOS and Android projects, including Elevate & Earn and PrEqt.",
 };
 
 export default function WorkPage() {
