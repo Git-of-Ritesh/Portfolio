@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 
 export default function Blog() {
@@ -23,51 +24,55 @@ export default function Blog() {
               Thinking out loud.
             </h2>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/journal"
             className="text-sm font-medium text-neutral-500 hover:text-black transition-colors flex items-center gap-2 shrink-0"
           >
             All posts
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Posts */}
         <div className="grid md:grid-cols-3 gap-px bg-neutral-200 rounded-2xl overflow-hidden border border-neutral-200">
           {blogPosts.map((post, i) => (
-            <motion.article
+            <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              className="bg-white p-7 flex flex-col gap-4 group cursor-pointer hover:bg-neutral-50 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-xs border border-neutral-200 rounded-full px-3 py-1 text-neutral-500 font-medium">
-                  {post.tag}
-                </span>
-                <span className="text-xs text-neutral-400">{post.readTime}</span>
-              </div>
+              <Link
+                href={`/journal/${post.slug}`}
+                className="bg-white p-7 flex h-full flex-col gap-4 group hover:bg-neutral-50 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs border border-neutral-200 rounded-full px-3 py-1 text-neutral-500 font-medium">
+                    {post.tag}
+                  </span>
+                  <span className="text-xs text-neutral-400">{post.readTime}</span>
+                </div>
 
-              <div className="flex-1">
-                <h3 className="text-base font-bold text-black leading-snug mb-2 group-hover:text-neutral-700 transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">{post.excerpt}</p>
-              </div>
+                <div className="flex-1">
+                  <h3 className="text-base font-bold text-black leading-snug mb-2 group-hover:text-neutral-700 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-neutral-500 leading-relaxed">{post.excerpt}</p>
+                </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-neutral-100">
-                <span className="text-xs text-neutral-400">{post.date}</span>
-                <span className="text-xs font-medium text-black flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Read
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </div>
-            </motion.article>
+                <div className="flex items-center justify-between pt-2 border-t border-neutral-100">
+                  <span className="text-xs text-neutral-400">{post.date}</span>
+                  <span className="text-xs font-medium text-black flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Read
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -9,19 +9,21 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const web3FormsAccessKey = process.env.WEB3FORMS_ACCESS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
+
   return (
-    <>
+    <div className="bg-black">
       <Navbar />
-      <main>
+      <main className="relative z-10 overflow-clip rounded-b-[2rem] bg-white md:rounded-b-[3rem]">
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        <Projects limit={3} />
         <Experience />
         <Blog />
-        <Contact />
+        <Contact accessKey={web3FormsAccessKey} />
       </main>
-      <Footer />
-    </>
+      <Footer reveal />
+    </div>
   );
 }
