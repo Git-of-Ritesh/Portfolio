@@ -55,7 +55,7 @@ function SendPlaneOverlay({ show }: { show: boolean }) {
   );
 }
 
-export default function Contact() {
+export default function Contact({ accessKey }: { accessKey: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -79,8 +79,6 @@ export default function Contact() {
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-
     if (!accessKey) {
       setStatus("error");
       setErrorMessage("Contact form is not configured.");

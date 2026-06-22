@@ -9,6 +9,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const web3FormsAccessKey = process.env.WEB3FORMS_ACCESS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
+
   return (
     <div className="bg-black">
       <Navbar />
@@ -19,7 +21,7 @@ export default function Home() {
         <Projects limit={3} />
         <Experience />
         <Blog />
-        <Contact />
+        <Contact accessKey={web3FormsAccessKey} />
       </main>
       <Footer reveal />
     </div>
