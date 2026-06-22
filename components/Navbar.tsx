@@ -22,6 +22,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const isCaseStudy = pathname.startsWith("/case-study");
+  const isJournal = pathname.startsWith("/journal");
+  const isContextPage = isCaseStudy || isJournal;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +51,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {isCaseStudy ? (
+        {isContextPage ? (
           <button
             type="button"
             onClick={() => router.back()}
@@ -72,7 +74,7 @@ export default function Navbar() {
         )}
 
         {/* Desktop nav */}
-        {!isCaseStudy && (
+        {!isContextPage && (
           <ul className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -98,7 +100,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile burger */}
-        {isCaseStudy ? (
+        {isContextPage ? (
           <div className="flex items-center gap-4 md:hidden">
             <Link href="/#contact" className="btn-primary text-sm px-4 py-2">
               Let&apos;s talk
@@ -130,7 +132,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile menu */}
-      {!isCaseStudy && mobileOpen && (
+      {!isContextPage && mobileOpen && (
         <div className="md:hidden bg-white border-b border-neutral-100 px-6 pb-6">
           <ul className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (

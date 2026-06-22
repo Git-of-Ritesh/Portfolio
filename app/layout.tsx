@@ -13,15 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Raj Pandey — Mobile App Developer",
+  title: "Raj Pandey — Flutter App Developer",
   description:
-    "I design and ship scalable, high-performance Flutter apps — from idea to App Store, with obsessive attention to motion, performance, and product detail.",
-  keywords: ["Flutter", "Mobile Developer", "iOS", "Android", "Firebase", "Supabase"],
+    "Flutter app developer building production-ready iOS and Android apps with clean UI, Firebase, REST API integration, testing, and store-ready delivery.",
+  keywords: ["Flutter", "Dart", "Mobile App Developer", "iOS", "Android", "Firebase", "REST APIs"],
   authors: [{ name: "Raj Pandey" }],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
   openGraph: {
-    title: "Raj Pandey — Mobile App Developer",
+    title: "Raj Pandey — Flutter App Developer",
     description:
-      "Flutter developer specializing in high-performance mobile apps across fintech, health, and creator tooling.",
+      "Flutter developer focused on production mobile apps, Firebase workflows, REST API integration, and clean app UI for iOS and Android.",
     type: "website",
   },
 };

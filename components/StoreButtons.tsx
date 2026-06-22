@@ -28,11 +28,19 @@ export default function StoreButtons({ appStoreLink, playStoreLink, variant = "d
   const buttonClass = isLight
     ? "border-white/18 bg-white/10 text-white hover:bg-white/16"
     : "border-neutral-200 bg-white text-black hover:bg-neutral-50";
+  const getExternalLinkProps = (href: string) =>
+    href.startsWith("http")
+      ? {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }
+      : {};
 
   return (
     <div className="flex flex-wrap gap-3">
       <a
         href={appStoreLink}
+        {...getExternalLinkProps(appStoreLink)}
         className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${buttonClass}`}
       >
         <AppleIcon />
@@ -40,6 +48,7 @@ export default function StoreButtons({ appStoreLink, playStoreLink, variant = "d
       </a>
       <a
         href={playStoreLink}
+        {...getExternalLinkProps(playStoreLink)}
         className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${buttonClass}`}
       >
         <PlayIcon />

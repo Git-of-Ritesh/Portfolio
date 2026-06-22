@@ -25,9 +25,9 @@ export default function Skills() {
             </h2>
           </div>
           <p className="text-neutral-500 text-sm leading-relaxed max-w-xs md:text-right">
-            A focused toolkit, sharpened over years of shipping.
+            A focused toolkit for building, debugging, and shipping Flutter apps.
             <br />
-            No buzzword soup.
+            Practical tools first.
           </p>
         </div>
 
