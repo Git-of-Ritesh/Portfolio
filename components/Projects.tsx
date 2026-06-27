@@ -9,6 +9,59 @@ import StoreButtons from "@/components/StoreButtons";
 
 type Project = (typeof allProjects)[number];
 
+function ProjectContent({ project, index, desktop = false }: { project: Project; index: number; desktop?: boolean }) {
+  return (
+    <div
+      className={
+        desktop
+          ? "absolute inset-x-0 bottom-12 mx-auto grid w-full max-w-6xl grid-cols-[1fr_0.8fr] items-end gap-8 px-10 text-white lg:px-12"
+          : "bg-black px-5 pb-9 pt-7 text-white sm:px-6"
+      }
+    >
+      <div>
+        <div className="mb-5 flex items-center gap-4">
+          <span className="font-mono text-xs text-white/58">/{String(index + 1).padStart(2, "0")}</span>
+          <span className="h-px w-12 bg-white/24" />
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/64">{project.category}</span>
+        </div>
+        <h3 className={`max-w-3xl font-bold leading-[0.95] text-white ${desktop ? "text-7xl lg:text-8xl" : "text-4xl sm:text-5xl"}`}>
+          {project.title}
+        </h3>
+      </div>
+
+      <div className={desktop ? "max-w-xl justify-self-end" : "mt-6 max-w-xl"}>
+        <p className={`leading-relaxed text-white/76 ${desktop ? "text-lg" : "text-sm sm:text-base"}`}>
+          {project.description}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/16 bg-white/10 px-3 py-1 text-xs font-medium text-white/78"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className={`mt-7 flex flex-col items-start gap-5 ${desktop ? "sm:flex-row sm:items-center" : ""}`}>
+          <StoreButtons
+            appStoreLink={project.appStoreLink}
+            playStoreLink={project.playStoreLink}
+            variant="light"
+          />
+          <Link
+            href={project.caseStudyLink}
+            scroll
+            className="inline-flex min-h-10 items-center text-sm font-semibold text-white transition-colors hover:text-white/70"
+          >
+            View case study
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProjectRevealCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -31,8 +84,25 @@ function ProjectRevealCard({ project, index }: { project: Project; index: number
   const metaOpacity = useTransform(scrollYProgress, [0.02, 0.2], [1, 0]);
 
   return (
-    <article ref={ref} className="relative h-[108svh] py-[2svh] md:h-[110vh] md:py-[2vh]">
-      <div className="sticky top-0 flex h-[100svh] items-start justify-center overflow-hidden md:h-screen">
+    <article ref={ref} className="relative md:h-[110vh] md:py-[2vh]">
+      <div className="md:hidden">
+        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900 sm:aspect-[16/10]">
+          {project.imageUrl && (
+            <Image
+              src={project.imageUrl}
+              alt={`${project.title} app mockup`}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.22))]" />
+        </div>
+        <ProjectContent project={project} index={index} />
+      </div>
+
+      <div className="sticky top-0 hidden h-screen items-start justify-center overflow-hidden md:flex">
         <motion.div
           style={{ clipPath }}
           className="relative isolate h-screen w-screen overflow-hidden bg-black shadow-[0_40px_120px_rgba(0,0,0,0.22)] will-change-transform"
@@ -64,50 +134,9 @@ function ProjectRevealCard({ project, index }: { project: Project; index: number
 
           <motion.div
             style={{ opacity: contentOpacity, y: contentY }}
-            className="absolute inset-x-0 bottom-0 mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 pb-8 text-white sm:px-6 md:bottom-12 md:grid md:grid-cols-[1fr_0.8fr] md:items-end md:gap-8 md:px-10 md:pb-0 lg:px-12"
+            className="absolute inset-0"
           >
-            <div>
-              <div className="mb-5 flex items-center gap-4">
-                <span className="font-mono text-xs text-white/58">/{String(index + 1).padStart(2, "0")}</span>
-                <span className="h-px w-12 bg-white/24" />
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/64">
-                  {project.category}
-                </span>
-              </div>
-              <h3 className="max-w-3xl text-4xl font-bold leading-[0.95] text-white sm:text-5xl md:text-7xl lg:text-8xl">
-                {project.title}
-              </h3>
-            </div>
-
-            <div className="max-w-xl md:justify-self-end">
-              <p className="text-sm leading-relaxed text-white/76 sm:text-base md:text-lg">
-                {project.description}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/16 bg-white/10 px-3 py-1 text-xs font-medium text-white/78 backdrop-blur"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center md:mt-8 md:gap-5">
-                <StoreButtons
-                  appStoreLink={project.appStoreLink}
-                  playStoreLink={project.playStoreLink}
-                  variant="light"
-                />
-                <Link
-                  href={project.caseStudyLink}
-                  scroll
-                  className="text-sm font-semibold text-white transition-colors hover:text-white/70"
-                >
-                  Case study
-                </Link>
-              </div>
-            </div>
+            <ProjectContent project={project} index={index} desktop />
           </motion.div>
         </motion.div>
       </div>
