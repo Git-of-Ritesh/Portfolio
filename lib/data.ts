@@ -102,7 +102,7 @@ export const experience = [
     company: "Akoode Technologies · Full-time",
     role: "Software Application Developer",
     period: "Nov 2025 — Present",
-    duration: "8 months and counting",
+    duration: "11 months and counting",
     location: "Gurugram, Haryana, India · On-site",
     description:
       "Working on live Flutter projects, building production screens, integrating APIs, fixing app issues, and implementing reusable UI components. I also support testing and release preparation so the app experience stays stable for end users.",

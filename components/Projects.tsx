@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { projects as allProjects } from "@/lib/data";
 import StoreButtons from "@/components/StoreButtons";
+import LoadingImage from "@/components/LoadingImage";
 
 type Project = (typeof allProjects)[number];
 
@@ -88,7 +88,7 @@ function ProjectRevealCard({ project, index }: { project: Project; index: number
       <div className="md:hidden">
         <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900 sm:aspect-[16/10]">
           {project.imageUrl && (
-            <Image
+            <LoadingImage
               src={project.imageUrl}
               alt={`${project.title} app mockup`}
               fill
@@ -109,7 +109,7 @@ function ProjectRevealCard({ project, index }: { project: Project; index: number
         >
           {project.imageUrl && (
             <motion.div style={{ scale: imageScale }} className="absolute inset-0">
-              <Image
+              <LoadingImage
                 src={project.imageUrl}
                 alt={`${project.title} app mockup`}
                 fill
