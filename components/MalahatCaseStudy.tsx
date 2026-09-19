@@ -1,11 +1,11 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { projects } from "@/lib/data";
 import StoreButtons from "@/components/StoreButtons";
+import LoadingImage from "@/components/LoadingImage";
 
 const project = projects[0];
 
@@ -95,7 +95,7 @@ function PhoneMockup({
 }) {
   return (
     <div className="relative w-full h-full">
-      <Image
+      <LoadingImage
         src={src}
         alt={alt}
         fill
@@ -202,7 +202,7 @@ export default function MalahatCaseStudy() {
             style={{ y: phoneY, scale: phoneScale }}
             className="relative mt-14 aspect-[4/3] overflow-hidden rounded-lg bg-black shadow-[0_34px_90px_rgba(0,0,0,0.16)] sm:aspect-[16/9] md:mt-18"
           >
-            <Image
+            <LoadingImage
               src={project.imageUrl}
               alt="Malahat app hero mockup"
               fill

@@ -1,11 +1,11 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { projects } from "@/lib/data";
 import StoreButtons from "@/components/StoreButtons";
+import LoadingImage from "@/components/LoadingImage";
 
 const project = projects[1];
 
@@ -179,7 +179,7 @@ export default function PreqtCaseStudy() {
             style={{ y: imageY, scale: imageScale }}
             className="relative mt-14 aspect-[4/3] overflow-hidden rounded-lg bg-black shadow-[0_34px_90px_rgba(0,0,0,0.16)] sm:aspect-[16/9] md:mt-18"
           >
-            <Image
+            <LoadingImage
               src={project.imageUrl}
               alt="PrEqt app and platform mockup"
               fill
@@ -293,7 +293,7 @@ export default function PreqtCaseStudy() {
                   transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
                   className="relative aspect-[363/786] h-[min(58vh,620px)] w-auto shrink-0 overflow-hidden rounded-[2rem] border border-neutral-200 bg-neutral-100 shadow-[0_24px_70px_rgba(0,0,0,0.08)] md:h-[min(64vh,680px)]"
                 >
-                  <Image
+                  <LoadingImage
                     src={screen.src}
                     alt={screen.alt}
                     fill
