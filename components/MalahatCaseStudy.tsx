@@ -176,7 +176,7 @@ export default function MalahatCaseStudy() {
               <span className="text-neutral-400">Built for ambassadors.</span>
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg">
-              A clean mobile dashboard for referral sales, commissions, tier progress, and event discovery. The design keeps dense business data readable without losing a premium travel feel.
+              A clean mobile dashboard for referral sales, commissions, tier progress, and event discovery, developed for Malahat SkyWalk partners while at Akoode Technologies. The design keeps dense business data readable without losing a premium travel feel.
             </p>
             <div className="mt-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div className="flex flex-wrap gap-2">
@@ -218,8 +218,8 @@ export default function MalahatCaseStudy() {
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-px overflow-hidden rounded-lg border border-neutral-200 bg-neutral-200 md:grid-cols-3">
           {[
+            ["Company", "Developed during my tenure at Akoode Technologies"],
             ["Role", "Flutter developer, app architecture, Firebase integration"],
-            ["Problem", "Make ambassador earnings, referrals, and tiers reliable at a glance"],
             ["Outcome", "A production-ready ambassador app with clean flows and maintainable modules"],
           ].map(([label, value], index) => (
             <motion.div
@@ -290,35 +290,35 @@ export default function MalahatCaseStudy() {
           className="relative mt-10 md:mt-12"
           style={{ height: `calc(100svh + ${galleryTravel}px)` }}
         >
-        <div
-          ref={galleryViewportRef}
-          className="sticky top-0 flex h-[100svh] items-center overflow-hidden py-12 md:py-14"
-        >
-          <div className="w-full overflow-hidden">
-            <motion.div
-              ref={galleryTrackRef}
-              style={{ x: galleryX }}
-              className="flex w-max items-center gap-5 px-[max(24px,calc((100vw-72rem)/2+24px))] will-change-transform md:gap-7"
-            >
-            {storyCards.map((screen, index) => (
-              <motion.article
-                key={screen.src}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-                className="relative flex h-[min(58vh,620px)] aspect-[9/16] w-auto shrink-0 items-center justify-center md:h-[min(64vh,680px)]"
+          <div
+            ref={galleryViewportRef}
+            className="sticky top-0 flex h-[100svh] items-center overflow-hidden py-12 md:py-14"
+          >
+            <div className="w-full overflow-hidden">
+              <motion.div
+                ref={galleryTrackRef}
+                style={{ x: galleryX }}
+                className="flex w-max items-center gap-5 px-[max(24px,calc((100vw-72rem)/2+24px))] will-change-transform md:gap-7"
               >
-                <PhoneMockup
-                  src={screen.src}
-                  alt={screen.alt}
-                  priority={index === 0}
-                />
-              </motion.article>
-            ))}
-            </motion.div>
+                {storyCards.map((screen, index) => (
+                  <motion.article
+                    key={screen.src}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
+                    className="relative flex h-[min(58vh,620px)] aspect-[9/16] w-auto shrink-0 items-center justify-center md:h-[min(64vh,680px)]"
+                  >
+                    <PhoneMockup
+                      src={screen.src}
+                      alt={screen.alt}
+                      priority={index === 0}
+                    />
+                  </motion.article>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
