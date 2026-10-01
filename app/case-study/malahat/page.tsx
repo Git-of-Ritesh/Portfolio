@@ -4,7 +4,7 @@ import MalahatCaseStudy from "@/components/MalahatCaseStudy";
 
 export const metadata = {
   title: "Elevate & Earn Case Study | Raj Pandey",
-  description: "A focused mobile app case study for Elevate & Earn, covering dashboard design, rewards, events, and ambassador flows.",
+  description: "A focused mobile app case study for Elevate & Earn, covering dashboard design, rewards, events, and ambassador flows developed at Akoode Technologies.",
 };
 
 export default function MalahatCaseStudyPage() {
