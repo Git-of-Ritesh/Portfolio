@@ -64,7 +64,7 @@ export const projects = [
     category: "Travel · iOS & Android",
     title: "Elevate & Earn",
     description:
-      "A Flutter ambassador app for referral tracking, ticket sales, commissions, tier progress, and campaign updates for Malahat SkyWalk partners.",
+    "A Flutter ambassador app for referral tracking, ticket sales, commissions, tier progress, and campaign updates for Malahat SkyWalk partners, built while at Akoode Technologies.",
     tags: ["Flutter", "Firebase", "REST APIs", "Store Release"],
     appStoreLink: "https://apps.apple.com/in/app/elevate-earn/id6776362324",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.malahatskywalk.elevateandearn&pcampaignid=web_share",
